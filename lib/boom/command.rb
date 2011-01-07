@@ -76,9 +76,9 @@ module Boom
         if storage.list_exists?(command)
           return delete_list(command) if major == 'delete'
           return detail_list(command) unless major
+          minor = $stdin.read if minor == '-'
           unless minor == 'delete'
-            minor ||= $stdin.read
-            return add_item(command,major,minor) if minor.to_s.length > 0
+            return add_item(command,major,minor) if minor
             return search_list_for_item(command, major)
           end
         end

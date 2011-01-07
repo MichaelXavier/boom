@@ -67,6 +67,12 @@ class TestCommand < Test::Unit::TestCase
       command('urls twitter http://twitter.com/holman')
   end
 
+  def test_item_creation_from_stdin
+    STDIN.stubs(:read).returns('http://twitter.com/holman')
+    assert_match /"twitter" in "urls"/,
+      command('urls twitter -')
+  end
+
   def test_list_deletion_no
     STDIN.stubs(:gets).returns('n')
     assert_match /Just kidding then/, command('urls delete')
