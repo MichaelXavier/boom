@@ -240,6 +240,7 @@ module Boom
           boom <list> delete            deletes a list
 
           boom <list> <name> <value>    create a new list item
+          boom <list> <name> -          create a new list item from STDIN
           boom <name>                   copy item's value to clipboard
           boom <list> <name>            copy item's value to clipboard
           boom <list> <name> delete     deletes an item
